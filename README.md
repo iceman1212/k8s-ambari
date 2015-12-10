@@ -32,3 +32,6 @@ $server_port 请求到达服务器的端口号。
 $server_protocol 请求使用的协议，通常是HTTP/1.0或HTTP/1.1。  
 $uri 请求中的当前URI(不带请求参数，参数位于$args)，可以不同于浏览器传递的$request_uri的值，它可以通过内部重定向，或者使用index指令进行修改。  
 另外： HTTP_X_FORWARDED_FOR是透过代理服务器取得客户端的真实IP地址，有些用此方法读取到的仍然是代理服务器的IP。还有一点需要注意的是：如果客户端没有通过代理服务器来访问，那么用 HTTP_X_FORWARDED_FOR 取到的值将是空的。
+
+## nginx_lua
+./configure   --with-ld-opt="-Wl,-E -lpthread -lcrypt -llua -lm -lpcre -lz -ldl" --add-module=../ngx_devel_kit-0.2.19 --add-module=../lua-nginx-module-0.9.19 && make && make install  
