@@ -1,11 +1,11 @@
 # nginx_learn #
 error_log   /dev/null;  丢弃日志  
 client_max_body_size  上传文件大小限制  
-## Nginx提供了很多内置的变量,如:  ##  
-$arg_PARAMETER 这个变量包含在查询字符串时GET请求PARAMETER的值。  
-$args 这个变量等于请求行中的参数。  
-$binary_remote_addr 二进制码形式的客户端地址。  
-$body_bytes_sent 传送页面的字节数  
+## Nginx提供了很多内置的变量,如:  
+>$arg_PARAMETER 这个变量包含在查询字符串时GET请求PARAMETER的值。  
+>$args 这个变量等于请求行中的参数。  
+>$binary_remote_addr 二进制码形式的客户端地址。  
+>$body_bytes_sent 传送页面的字节数  
 $content_length 请求头中的Content-length字段。  
 $content_type 请求头中的Content-Type字段。  
 $cookie_COOKIE cookie COOKIE的值。  
