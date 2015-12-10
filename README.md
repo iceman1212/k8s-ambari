@@ -1,12 +1,12 @@
 # nginx_learn #
 >error_log   /dev/null;  丢弃日志  
->client_max_body_size  上传文件大小限制 
->client_max_body_size          50m; //文件大小限制，默认1m  
->client_header_timeout         1m;  
->client_body_timeout           1m;  
->proxy_connect_timeout         60s;  
->proxy_read_timeout            1m;  
->proxy_send_timeout            1m;  
+client_max_body_size  上传文件大小限制 
+client_max_body_size          50m; //文件大小限制，默认1m  
+client_header_timeout         1m;  
+client_body_timeout           1m;  
+proxy_connect_timeout         60s;  
+proxy_read_timeout            1m;  
+proxy_send_timeout            1m;  
 ## Nginx提供了很多内置的变量,如:  
 >$arg_PARAMETER 这个变量包含在查询字符串时GET请求PARAMETER的值。  
 $args 这个变量等于请求行中的参数。  
