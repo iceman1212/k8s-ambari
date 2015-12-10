@@ -34,4 +34,4 @@ $uri 请求中的当前URI(不带请求参数，参数位于$args)，可以不�
 另外： HTTP_X_FORWARDED_FOR是透过代理服务器取得客户端的真实IP地址，有些用此方法读取到的仍然是代理服务器的IP。还有一点需要注意的是：如果客户端没有通过代理服务器来访问，那么用 HTTP_X_FORWARDED_FOR 取到的值将是空的。
 
 ## nginx_lua
-./configure   --with-ld-opt="-Wl,-E -lpthread -lcrypt -llua -lm -lpcre -lz -ldl" --add-module=../ngx_devel_kit-0.2.19 --add-module=../lua-nginx-module-0.9.19 && make && make install  
+>./configure   --with-ld-opt="-Wl,-E -lpthread -lcrypt -llua -lm -lpcre -lz -ldl" --add-module=../ngx_devel_kit-0.2.19 --add-module=../lua-nginx-module-0.9.19 && make && make install  
