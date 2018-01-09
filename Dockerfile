@@ -1,6 +1,9 @@
 FROM centos:6.9
 maintainer  le.yin <le.yin@howbuy.com>
-RUN curl -o /etc/yum.repos.d/ambari.repo  http://10.12.53.23/ambari.repo \
+ARG yumhost=""
+RUN curl -o /etc/yum.repos.d/ambari.repo  http://${yumhost}/ambari.repo \
+    && curl -o /etc/yum.repos.d/hdp.repo  http://${yumhost}/hdp.repo \
+    && curl -o /etc/yum.repos.d/hdp-util.repo  http://${yumhost}/hdp-util.repo \
     && curl -o /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-6.repo \
     && curl -o /etc/yum.repos.d/epel.repo http://mirrors.aliyun.com/repo/epel-6.repo \
     && yum update -y \
@@ -14,13 +17,13 @@ RUN curl -o /etc/yum.repos.d/ambari.repo  http://10.12.53.23/ambari.repo \
     && /bin/echo -e "LANG=\"en_US.UTF-8\"" > /etc/default/local \
     && yum install -y ambari-server ambari-agent \
     && mkdir -p /var/lib/ambari-server/resources \
-    && curl -o /var/lib/ambari-server/resources/jdk-8u112-linux-x64.tar.gz http://10.12.53.23/jdk-8u112-linux-x64.tar.gz \
-    && curl -o /var/lib/ambari-server/resources/jce_policy-8.zip http://10.12.53.23/jce_policy-8.zip \
+    && curl -o /var/lib/ambari-server/resources/jdk-8u112-linux-x64.tar.gz http://${yumhost}/jdk-8u112-linux-x64.tar.gz \
+    && curl -o /var/lib/ambari-server/resources/jce_policy-8.zip http://${yumhost}/jce_policy-8.zip \
     && chmod +x /var/lib/ambari-server/resources/jdk-8u112-linux-x64.tar.gz \
     && chmod +x /var/lib/ambari-server/resources/jce_policy-8.zip \
     && yum install expect-devel expect -y \
     && yum clean all \
-    && curl -o /root/sshkeygen.sh http://10.12.53.23/sshkeygen.sh \
+    && curl -o /root/sshkeygen.sh http://${yumhost}/sshkeygen.sh \
     && chmod 755 /root/sshkeygen.sh \
     && /root/sshkeygen.sh \
     && cat /root/.ssh/id_rsa.pub > /root/.ssh/authorized_keys
