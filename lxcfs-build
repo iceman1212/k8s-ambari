@@ -1,0 +1,10 @@
+yum install autoconf -y
+yum install automake -y
+yum install m4 -y
+yum install libtool -y
+yum install fuse -y
+yum install fuse-devel -y
+yum install pam-devel -y
+
+
+sh bootstrap.sh && ./configure && make install
